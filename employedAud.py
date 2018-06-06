@@ -1,6 +1,4 @@
 import requests
-import numpy as np
-import pandas as pd
 import datetime
 
 def getEmployedAud():
@@ -30,8 +28,8 @@ def getEmployedAud():
                         for aud in lesson['auditory']:
                             employed.add(aud);
         except KeyError: # API БГУИРа самый лучший ♥ (нет)
-            print('')
+            'No schedule'
         except ValueError:
-            print('')
+            'No schedule'
     print('Список аудиторий загружен...')
     return employed

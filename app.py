@@ -9,6 +9,7 @@ Floor = int(input('Введите этаж(-1, если не имеет знач
 response = requests.get(url)
 AudList = response.json()
 
+print('Загружается список аудиторий... Это может 3-4 минуты')
 employed = getEmployedAud();
 
 allAud = set()
