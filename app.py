@@ -1,12 +1,17 @@
 import requests
+from employedAud import getEmployedAud
 
 url = "https://students.bsuir.by/api/v1/auditory"
 
 buildID = int(input('Введите номер корпуса: '))
-Floor = int(input('Введите этаж( -1, если не имеет значение )'))
+Floor = int(input('Введите этаж(-1, если не имеет значение): '))
 
 response = requests.get(url)
 AudList = response.json()
+
+employed = getEmployedAud();
+
+allAud = set()
 
 for aud in AudList:
 	currBuild = aud['buildingNumber']['id'] # Номер корпуса
@@ -15,4 +20,8 @@ for aud in AudList:
 		continue
 	currFloor = int(str(audID)[0]); # Этаж
 	if (currBuild == buildID) and ((Floor == -1) or (currFloor == Floor)):
-		print(audID, '-', aud['buildingNumber']['id'])
+		currAud = str(audID) + '-' + str(aud['buildingNumber']['id'])
+		currAud = currAud.replace(' ', '')
+		allAud.add(currAud)
+		if not (currAud in employed): # Проверяем, занята ли аудитория (В employed - множество занятых аудиторий)
+			print(currAud)
