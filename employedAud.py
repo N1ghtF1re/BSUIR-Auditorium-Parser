@@ -11,15 +11,15 @@ def getEmployedAud():
 
     nowTime= datetime.datetime.now()
 
-    employed = set();
+    employed = set(); # Множество занятых аудиторий
 
     for group in GroupList:
 
         try:
             response = requests.get(scheduleURL+group['name'])
-            schedule = response.json() # Полное расписание на сегодня
+            schedule = response.json() # Полное расписание на сегодня для текущей группы (group)
             if schedule['todaySchedules'] != []:
-                for lesson in schedule['todaySchedules']: # Перебор сегодняшних пар группы
+                for lesson in schedule['todaySchedules']: # Перебор сегодняшних пар группы group
                     startTime = lesson['startLessonTime'].split(':'); #Начало лекции. 0 элемент - часы кортежа, 1 - минуты
                     endTime = lesson['endLessonTime'].split(':'); # Конец лекции
                     startTime = nowTime.replace(hour=int(startTime[0]), minute = int(startTime[1]))
