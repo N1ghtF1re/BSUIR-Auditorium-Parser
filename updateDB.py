@@ -27,7 +27,8 @@ def getLastUpdate(db_file): # Возвращаем дату последнего
     return results[0][0]
 
 def updateAllTables(db_file):
-    print('Идет обновление базы данных... Это займет около 5 минут...')
+    print('Идет обновление базы данных... Это займет около 5 минут.')
     updateAudiencesTable(db_file)
     getSchedule(db_file)
     setLastUpdate(db_file)
+    print('База данных обновлена!')
