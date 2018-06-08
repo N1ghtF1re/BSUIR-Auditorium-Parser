@@ -3,21 +3,19 @@
 # Столбец:    id  |  GroupName    |  Aud             | Day                      | StartTime      | EndTime             | StrTime
 # Описание:   -   | Номер группы  | Список аудиторий | Номер дня недели(0 - пн) | Начало и конец ЛК в Hour*60 + Minute | Время лекции в строковом формате
 
-
-
 import sqlite3
 import requests
 import json
 
 daysnames = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
-# Подключаемся к БД
-conn = sqlite3.connect('db\schedule.sqlite')
 
-cursor = conn.cursor()
+def getShedule(table):
+    # Подключаемся к БД
+    conn = sqlite3.connect(table)
 
+    cursor = conn.cursor()
 
-def getShedule():
     groupsURL = 'https://students.bsuir.by/api/v1/groups'
 
     response = requests.get(groupsURL)
@@ -53,8 +51,7 @@ def getShedule():
             'No schedule'
         except ValueError:
             'No schedule'
+    conn.close()
 # EndProc
 
 getShedule()
-
-conn.close()
