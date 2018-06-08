@@ -10,12 +10,12 @@ import json
 daysnames = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
 
-def getShedule(table):
+def getSchedule(table):
     # Подключаемся к БД
     conn = sqlite3.connect(table)
     cursor = conn.cursor()
 
-    cursor.execute('DELETE FROM Audiences')
+    cursor.execute('DELETE FROM Schedule')
     conn.commit()
 
     groupsURL = 'https://students.bsuir.by/api/v1/groups'
