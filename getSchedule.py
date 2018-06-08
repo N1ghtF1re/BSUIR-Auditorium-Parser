@@ -13,8 +13,10 @@ daysnames = ['Понедельник', 'Вторник', 'Среда', 'Четв
 def getShedule(table):
     # Подключаемся к БД
     conn = sqlite3.connect(table)
-
     cursor = conn.cursor()
+
+    cursor.execute('DELETE FROM Audiences')
+    conn.commit()
 
     groupsURL = 'https://students.bsuir.by/api/v1/groups'
 
@@ -37,7 +39,7 @@ def getShedule(table):
                         times = str(lesson['lessonTime'])
                         startTime = lesson['startLessonTime'].split(':'); #Начало лекции. 0 элемент - часы кортежа, 1 - минуты
                         endTime = lesson['endLessonTime'].split(':'); # Конец лекции
-                        startTime = 60 * int(startTime[0]) + int(startTime[1])
+                        startTime = 60 * int(startTime[0]) + int(startTime[1]) # Формат времени : кол-во минут, начиная с 00:00
                         endTime = 60 * int(endTime[0]) + int(endTime[1])
 
 
@@ -52,6 +54,3 @@ def getShedule(table):
         except ValueError:
             'No schedule'
     conn.close()
-# EndProc
-
-getShedule()
