@@ -3,11 +3,6 @@ from getSchedule import getSchedule
 from getAudiences import updateAudiencesTable
 import datetime
 
-def updateAllTables(db_file):
-    print('Идет обновление базы данных... Это займет около 5 минут...')
-    updateAudiencesTable(db_file)
-    getSchedule(db_file)
-
 def setLastUpdate(db_file): # Обновляем время обновление на текущее
     conn = sqlite3.connect(db_file)
     cursor = conn.cursor()
@@ -30,3 +25,9 @@ def getLastUpdate(db_file): # Возвращаем дату последнего
     conn.close()
 
     return results[0][0]
+
+def updateAllTables(db_file):
+    print('Идет обновление базы данных... Это займет около 5 минут...')
+    updateAudiencesTable(db_file)
+    getSchedule(db_file)
+    setLastUpdate(db_file)
