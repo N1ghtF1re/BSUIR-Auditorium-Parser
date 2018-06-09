@@ -6,10 +6,7 @@ import os
 from getEmployedFromDB import getEmployedAud
 from getAudiences import getAudiencesList
 
-
-
 db_file = 'db\schedule.sqlite' # Файл базы данных SQLite
-
 
 def writeFreeAud(cursor):
 	while True:
@@ -20,9 +17,6 @@ def writeFreeAud(cursor):
 			print('Вы вводите недопустимый символ -____-')
 		else:
 			break
-
-
-	#updateAudiencesTable(db_file)
 
 
 	allAuds = getAudiencesList(cursor,Floor, buildID, db_file)

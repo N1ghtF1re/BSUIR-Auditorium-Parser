@@ -14,10 +14,20 @@ def getAudList(str):
     return str.split(',')
 
 def getEmployedAud(cursor):
-    url = 'http://students.bsuir.by/api/v1/week'
-
-    response = requests.get(url)
-    week = response.json() # Текущая неделя
+    try:
+        url = 'http://students.bsuir.by/api/v1/week'
+        response = requests.get(url)
+        week = response.json() # Текущая неделя
+    except requests.exceptions.ConnectionError: # Если отсуствует подключение к интернету, то пользователь сам вводит номер недели
+        print('Нет подключения к интернету. Поэтому введите номер недели сами :)')
+        while True:
+            try:
+                week = int(input("Введите номер недели от 1 до 4: "))
+            except:
+                print('Некорректный ввод')
+            else:
+                if week in [1,2,3,4]:
+                    break
 
     employed = set(); # Множество занятых аудиторий
 
