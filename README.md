@@ -5,7 +5,8 @@
 <a href="https://github.com/N1ghtF1re/BSUIR-Audiences-Parser/stargazers"><img src="https://img.shields.io/github/stars/N1ghtF1re/BSUIR-Audiences-Parser.svg" alt="Stars"></a>
 <a href="https://github.com/N1ghtF1re/BSUIR-Audiences-Parser/releases"><img src="https://img.shields.io/badge/downloads-6-brightgreen.svg" alt="Total Downloads"></a>
 <a href="https://github.com/N1ghtF1re/BSUIR-Audiences-Parser/releases"><img src="https://img.shields.io/github/tag/N1ghtF1re/BSUIR-Audiences-Parser.svg" alt="Latest Stable Version"></a>
-<!--<a href="https://github.com/N1ghtF1re/The-syntax-diagram-editor/blob/master/LICENSE"><img src="https://img.shields.io/github/license/N1ghtF1re/The-syntax-diagram-editor.svg" alt="License"></a>-->
+<a href="https://github.com/N1ghtF1re/BSUIR-Audiences-Parser/blob/master/LICENSE"><img src="https://img.shields.io/github/license/N1ghtF1re/BSUIR-Audiences-Parser.svg" alt="License"></a>
+</p>
 </p>
  
 ## About the program
