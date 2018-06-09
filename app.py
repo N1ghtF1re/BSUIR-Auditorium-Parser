@@ -1,20 +1,31 @@
 import requests
+import sys
+import updateDB
+import sqlite3
 from getEmployedFromDB import getEmployedAud
 from getAudiences import getAudiencesList
-import updateDB
+
+
 
 db_file = 'db\schedule.sqlite' # Файл базы данных SQLite
 
-def writeFreeAud():
-	buildID = int(input('Введите номер корпуса: '))
-	Floor = int(input('Введите этаж(-1, если не имеет значение): '))
+
+def writeFreeAud(cursor):
+	while True:
+		try:
+			buildID = int(input('Введите номер корпуса: '))
+			Floor = int(input('Введите этаж(-1, если не имеет значение): '))
+		except ValueError:
+			print('Вы вводите недопустимый символ -____-')
+		else:
+			break
+
 
 	#updateAudiencesTable(db_file)
 
 
-	allAuds = getAudiencesList(Floor, buildID, db_file)
-	employed = getEmployedAud(db_file); # Получаем множество занятых аудиторий
-
+	allAuds = getAudiencesList(cursor,Floor, buildID, db_file)
+	employed = getEmployedAud(cursor); # Получаем множество занятых 
 	freeAud = allAuds - employed # Исключаем из множества всех аудиторий множество занятых аудиторий
 
 	print('Свободные аудитории: ')
@@ -25,26 +36,37 @@ def writeFreeAud():
 	if freeAud == set():
 		print('Нет свободных аудиторий ;c')
 
-print('Добро пожаловать в приложение для поиска свободной аудитории')
-print('Последнее обновление: {0}. Чем чаще вы обновляетесь, тем точнее будет результат\n'.format(updateDB.getLastUpdate(db_file)))
+try:
+	# Подключаемся к БД
+	conn = sqlite3.connect(db_file)
+	cursor = conn.cursor()
 
-while True: # Пользовательское меню
-	print('''Пожалуйста, выберите действие:
-	1 - Поиск свободной аудитории
-	2 - Обновление базы данных
-	3 - Выход из приложения''')
-	while True:
-		try:
-			answer = int(input('>> '))
-			if answer in {1,2,3}:
-				break
-		except ValueError:
-			print('Хватит вводить недопустимые символы!')
+	print('Добро пожаловать в приложение для поиска свободной аудитории')
+	print('Последнее обновление: {0}. Чем чаще вы обновляетесь, тем точнее будет результат\n'.format(updateDB.getLastUpdate(cursor)))
 
-	if answer == 1:
-		writeFreeAud()
-		break
-	elif answer == 2:
-		updateDB.updateAllTables(db_file)
-	else:
-		break
+	while True: # Пользовательское меню
+		print('''Пожалуйста, выберите действие:
+		1 - Поиск свободной аудитории
+		2 - Выход из приложения
+		9 - Обновление базы данных
+		''')
+		while True:
+			try:
+				answer = int(input('>> '))
+				if answer in {1,2,9}:
+					break
+			except ValueError:
+				print('Хватит вводить недопустимые символы!')
+
+		if answer == 1:
+			writeFreeAud(cursor)
+			break
+		elif answer == 9:
+			updateDB.updateAllTables(cursor, conn)
+		else:
+			break
+except sqlite3.Error as e:
+	print('\nВозникла ошибка при работе с БД. Ошибка: ', e.args[0])
+	print('Возможно файл БД отсуствует или открыт в другом приложении.')
+finally:
+	conn.close()

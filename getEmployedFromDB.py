@@ -13,16 +13,11 @@ def getAudList(str):
     str = str.replace("a", 'а')
     return str.split(',')
 
-def getEmployedAud(db_file):
+def getEmployedAud(cursor):
     url = 'http://students.bsuir.by/api/v1/week'
 
     response = requests.get(url)
     week = response.json() # Текущая неделя
-
-    # Подключаемся к БД
-    conn = sqlite3.connect(db_file)
-
-    cursor = conn.cursor() #
 
     employed = set(); # Множество занятых аудиторий
 
@@ -39,6 +34,4 @@ def getEmployedAud(db_file):
             audList = getAudList(audStrList)
             for aud in audList:
                 employed.add(aud) # Добавляем аудиторию в множество
-    conn.close()
-    
     return employed

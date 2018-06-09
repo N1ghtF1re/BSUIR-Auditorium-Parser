@@ -10,10 +10,7 @@ import json
 daysnames = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
 
-def getSchedule(table):
-    # Подключаемся к БД
-    conn = sqlite3.connect(table)
-    cursor = conn.cursor()
+def getSchedule(cursor, conn):
 
     cursor.execute('DELETE FROM Schedule')
     conn.commit()
@@ -53,4 +50,3 @@ def getSchedule(table):
             'No schedule'
         except ValueError:
             'No schedule'
-    conn.close()

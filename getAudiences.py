@@ -6,17 +6,12 @@
 import sqlite3
 import requests
 
-def updateAudiencesTable(db_file):
-    # Подключаемся к БД
-    conn = sqlite3.connect(db_file)
-    cursor = conn.cursor()
+def updateAudiencesTable(cursor, conn):
 
     url = "https://students.bsuir.by/api/v1/auditory"
 
     response = requests.get(url)
     AudList = response.json()
-    cursor.execute('DELETE FROM Audiences')
-    conn.commit()
 
     for aud in AudList:
         currBuild = aud['buildingNumber']['id'] # Номер корпуса
@@ -31,13 +26,7 @@ def updateAudiencesTable(db_file):
         ",{"name": audID, "type": audType, "building": currBuild, "floor": currFloor})
         conn.commit()
 
-    conn.close()
-
-def getAudiencesList(floor, building, db_file):
-    # Подключаемся к БД
-    conn = sqlite3.connect(db_file)
-    cursor = conn.cursor()
-
+def getAudiencesList(cursor, floor, building, db_file):
     auds = set()
 
     if floor == -1:
