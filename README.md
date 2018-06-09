@@ -8,5 +8,31 @@
 <!--<a href="https://github.com/N1ghtF1re/The-syntax-diagram-editor/blob/master/LICENSE"><img src="https://img.shields.io/github/license/N1ghtF1re/The-syntax-diagram-editor.svg" alt="License"></a>-->
 </p>
  
+## About the program
+The application is looking for free audiences in the need BSUIR building, based on the group schedule. To increase the speed of work, the application saves schedules in the database. It is recommended as often as possible (at least at the beginning of each semester) to update the database in the application (the update takes about 5 minutes)
 
-The application is looking for free audiences in the need BSUIR building
+## Technical requirements
+Python 3+ should be installed on your computer. If you did not, here's [link](https://www.python.org/downloads/)
+
+The following Python packages must be installed:
+* sqlite3
+* requests
+## How to use
+To start working with the application, you need to run the app.py file. The console starts. There it is necessary to follow the instructions, choosing the necessary actions
+
+# RUS DESCRIPION:
+## О приложении 
+Приложение ищет свободную аудиторию в нужном корпусе БГУИР, основываясь на расписании групп. Для увеличения скорости работы, приложение сохраняет расписания в БД. Рекомендуется как можно чаще (как минимум в начале каждого семестра) обновлять базу данных в приложении (Обновление занимает около 5 минут)
+
+## Технические требования
+На вашем компьютере должен быть установлен Python 3+. Если вы этого не сделали - вот [ссылка](https://www.python.org/downloads/)
+
+Должны быть установлены следующие пакеты Python
+* sqlite3
+* requests
+
+## Руководство к использованию
+Для начала работы с приложением необходимо запустить файл app.py. Запустится консоль. Там необходимо следовать инструкции, выбирая необходимые действия.
+
+![Screen](https://i.imgur.com/FBdIRrW.png)
+
