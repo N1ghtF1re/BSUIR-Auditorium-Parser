@@ -18,7 +18,12 @@ The following Python packages must be installed:
 * sqlite3
 * requests
 ## How to use
-To start working with the application, you need to run the app.py file. The console starts. There it is necessary to follow the instructions, choosing the necessary actions
+To start working with the application, you need to run the app.py file (The extension must be associated with Python). The console starts. There it is necessary to follow the instructions, choosing the necessary actions
+
+Option 2: open the terminal, move through the cd to the directory of this repository, then in the console enter 
+```
+python app.py
+```
 
 # RUS DESCRIPION:
 ## О приложении 
@@ -32,7 +37,12 @@ To start working with the application, you need to run the app.py file. The cons
 * requests
 
 ## Руководство к использованию
-Для начала работы с приложением необходимо запустить файл app.py. Запустится консоль. Там необходимо следовать инструкции, выбирая необходимые действия.
+Для начала работы с приложением необходимо запустить файл app.py (Расширение должно быть асоциированно с Python). Запустится консоль. Там необходимо следовать инструкции, выбирая необходимые действия.
+
+Вариант 2: открыть терминал, переместиться через cd в каталог этого репозитория, после чего в консоли ввести
+```
+python app.py
+```
 
 ![Screen](https://i.imgur.com/FBdIRrW.png)
 
