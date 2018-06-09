@@ -2,6 +2,7 @@ import requests
 import sys
 import updateDB
 import sqlite3
+import os
 from getEmployedFromDB import getEmployedAud
 from getAudiences import getAudiencesList
 
@@ -25,7 +26,7 @@ def writeFreeAud(cursor):
 
 
 	allAuds = getAudiencesList(cursor,Floor, buildID, db_file)
-	employed = getEmployedAud(cursor); # Получаем множество занятых 
+	employed = getEmployedAud(cursor); # Получаем множество занятых
 	freeAud = allAuds - employed # Исключаем из множества всех аудиторий множество занятых аудиторий
 
 	print('Свободные аудитории: ')
@@ -64,9 +65,12 @@ try:
 		elif answer == 9:
 			updateDB.updateAllTables(cursor, conn)
 		else:
-			break
+			exit(0)
 except sqlite3.Error as e:
 	print('\nВозникла ошибка при работе с БД. Ошибка: ', e.args[0])
 	print('Возможно файл БД отсуствует или открыт в другом приложении.')
 finally:
 	conn.close()
+
+if os.name == 'nt':
+	input('\nНажмите ENTER для выхода из приложения') # Ожидание ввода, чтобы приложение не закрывалось сразу при открытии через ярлык в windows
