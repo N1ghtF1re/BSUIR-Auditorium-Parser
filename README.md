@@ -9,7 +9,7 @@
 </p>
 </p>
 
-## There was a version for users of the social network Vk.com [link]
+## Version for users of the social network vk.com [link]
 (https://vk.com/free_auds_bsuir)
  
 ## About the program
