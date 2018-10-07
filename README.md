@@ -8,6 +8,9 @@
 <a href="https://github.com/N1ghtF1re/BSUIR-Audiences-Parser/blob/master/LICENSE"><img src="https://img.shields.io/github/license/N1ghtF1re/BSUIR-Audiences-Parser.svg" alt="License"></a>
 </p>
 </p>
+
+## ПThere was a version for users of the social network Vk.com [link]
+(https://vk.com/free_auds_bsuir)
  
 ## About the program
 The application is looking for free audiences in the need BSUIR building, based on the group schedule. To increase the speed of work, the application saves schedules in the database. It is recommended as often as possible (at least at the beginning of each semester) to update the database in the application (the update takes about 5 minutes)
@@ -27,6 +30,11 @@ python app.py
 ```
 
 # RUS DESCRIPION:
+
+## Появилась версия для пользователей соцсети Вконтакте [ссылка]
+(https://vk.com/free_auds_bsuir)
+
+
 ## О приложении 
 Приложение ищет свободную аудиторию в нужном корпусе БГУИР, основываясь на расписании групп. Для увеличения скорости работы, приложение сохраняет расписания в БД. Рекомендуется как можно чаще (как минимум в начале каждого семестра) обновлять базу данных в приложении (Обновление занимает около 5 минут)
 
