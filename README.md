@@ -1,4 +1,4 @@
-<h1 align="center">BSUIR Audiences Parser</h1>
+<h1 align="center">BSUIR Auditorium Parser</h1>
 <p align="center"><img src="https://i.imgur.com/XyHB2GJ.png" style="width: 150px;"></p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 (https://vk.com/free_auds_bsuir)
  
 ## About the program
-The application is looking for free audiences in the need BSUIR building, based on the group schedule. To increase the speed of work, the application saves schedules in the database. It is recommended as often as possible (at least at the beginning of each semester) to update the database in the application (the update takes about 5 minutes)
+The application is looking for free auditoriums in the need BSUIR building, based on the group schedule. To increase the speed of work, the application saves schedules in the database. It is recommended as often as possible (at least at the beginning of each semester) to update the database in the application (the update takes about 5 minutes)
 
 ## Technical requirements
 Python 3+ should be installed on your computer. If you did not, here's [link](https://www.python.org/downloads/)
